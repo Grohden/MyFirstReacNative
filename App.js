@@ -1,18 +1,23 @@
 import React from 'react';
-import SideMenu from 'react-native-side-menu';
-import { StyleSheet, Text, View } from 'react-native';
-import ContentView from './src/content-view/ContentView';
-import Menu from './src/menu/Menu';
+import {StyleSheet, Text, View} from 'react-native';
+import ActionBar from "./src/components/action-bar/ActionBar";
+import ContentView from "./src/components/content-view/ContentView";
 
 export default class App extends React.Component {
   render() {
-    const menu = <Menu />;
-    
+    // const menu = <Menu/>;
     return (
-      <SideMenu menu={menu}>
-        <ContentView />
-      </SideMenu>
+      <View style={style.container}>
+        <ActionBar/>
+        <ContentView/>
+      </View>
     );
   }
 }
 
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+});
