@@ -2,14 +2,16 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import ActionBar from "./src/components/action-bar/ActionBar";
 import ContentView from "./src/components/content-view/ContentView";
+import Login from "./src/components/login/Login";
 
 export default class App extends React.Component {
   render() {
     // const menu = <Menu/>;
     return (
       <View style={style.container}>
-        <ActionBar/>
-        <ContentView/>
+        {/*<ActionBar/>*/}
+        <Login />
+        {/*<ContentView/>*/}
       </View>
     );
   }
