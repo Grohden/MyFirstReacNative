@@ -1,12 +1,6 @@
 import React from 'react';
-import * as R from 'ramda';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const whenIOS = (value) => R.when(
-  () => Platform.OS === 'ios',
-  R.always(value)
-);
-
+import {StyleSheet, Text, View} from 'react-native';
+import * as PlatformUtils from '../../PlatformUtils';
 
 export default class ActionBar extends React.Component {
   render() {
@@ -21,8 +15,8 @@ export default class ActionBar extends React.Component {
 const style = StyleSheet.create({
   textContainer:{
     backgroundColor: '#677588',
-    height: whenIOS(50)(80),
-    paddingTop: whenIOS(20)(20),
+    height: PlatformUtils.ifIOS(50).elseUse(50),
+    paddingTop: PlatformUtils.ifIOS(20).elseUse(0),
     justifyContent: 'center',
     alignContent: 'center'
   },
