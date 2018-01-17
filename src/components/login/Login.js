@@ -1,4 +1,5 @@
 import React from 'react';
+import {Icon} from '../icons/Icon';
 import {TouchableOpacity, StyleSheet, Text, View, TextInput} from 'react-native';
 
 export default class Login extends React.Component {
@@ -6,20 +7,33 @@ export default class Login extends React.Component {
     return (
       <View style={style.loginContainer}>
         <View style={style.inputsContainer}>
-          <TextInput
-            autoFocus
-            autoCapitalize="none"
-            style={[style.boxInput, style.loginItem]}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="User"
-          />
 
-          <TextInput
-            autoCapitalize="none"
-            style={[style.boxInput, style.loginItem]}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Password"
-          />
+          <View style={[style.loginItem, style.boxInput]}>
+
+            <Icon style={style.iconForInput} name="user" size={20} color="white"/>
+
+            <TextInput
+              autoFocus
+              placeholderTextColor="white"
+              style={style.inputWithIcon}
+              autoCapitalize="none"
+              underlineColorAndroid="rgba(0,0,0,0)"
+              placeholder="User"
+            />
+          </View>
+
+          <View style={[style.loginItem, style.boxInput]}>
+            <Icon style={style.iconForInput} name="lock" size={20} color="white"/>
+
+            <TextInput
+              autoCapitalize="none"
+              placeholderTextColor="white"
+              style={style.inputWithIcon}
+              underlineColorAndroid="rgba(0,0,0,0)"
+              secureTextEntry={true}
+              placeholder="Password"
+            />
+          </View>
 
           <TouchableOpacity
             style={[style.submitButton, style.loginItem]}
@@ -43,15 +57,24 @@ const style = StyleSheet.create({
     paddingHorizontal: 25,
     alignContent: 'center',
   },
-  loginItem:{
+  inputWithIcon:{
+    flex: 6,
+    color: 'white',
     paddingVertical: 15,
-    paddingHorizontal: 10,
-    marginTop:10,
+  },
+  iconForInput:{
+    flex: 1,
+    textAlign: 'center',
+    alignSelf: 'center',
+  },
+  loginItem:{
+    marginBottom:10,
     borderRadius: 3,
   },
   submitButton:{
     backgroundColor:'#0086c7',
     alignItems: 'center',
+    paddingVertical: 15,
     paddingHorizontal: 15
   },
   submitButtonText :{
@@ -62,6 +85,7 @@ const style = StyleSheet.create({
   boxInput: {
     backgroundColor: 'rgba(72, 78, 91, 0.5)',
     alignSelf:'stretch',
+    flexDirection: 'row',
     borderColor: '#ddd',
   }
 });
